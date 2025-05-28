@@ -16,6 +16,8 @@ export function ResumeAnalyzer() {
   const [similarity, setSimilarity] = useState<number | null>(null)
   const [loading, setLoading] = useState(false)
   const [analyzed, setAnalyzed] = useState(false)
+  const [resumeText, setResumeText] = useState<string>("")
+  const [jobDescriptionText, setJobDescriptionText] = useState<string>("")
   const { toast } = useToast()
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,6 +71,8 @@ export function ResumeAnalyzer() {
 
       const data = await response.json()
       setSimilarity(data.similarity)
+      setResumeText(data.resume_text)
+      setJobDescriptionText(data.job_description)
       setAnalyzed(true)
 
       toast({
@@ -168,7 +172,26 @@ export function ResumeAnalyzer() {
               <div className="flex items-center justify-center mb-4">
                 <CircularProgress value={similarity} circleColor="#4b5563" progressColor="#3b82f6" />
               </div>
-              <div className="text-center">
+
+              {/* Add new results display */}
+              <div className="w-full mt-6 space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-medium text-gray-300">Job Description</h3>
+                    <div className="p-3 bg-gray-700 rounded-md">
+                      <pre className="text-sm text-gray-200 whitespace-pre-wrap">{jobDescriptionText}</pre>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-medium text-gray-300">Your Resume</h3>
+                    <div className="p-3 bg-gray-700 rounded-md">
+                      <pre className="text-sm text-gray-200 whitespace-pre-wrap">{resumeText}</pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center mt-6">
                 <p className="text-lg font-medium text-gray-300">
                   Your resume has a <span className="font-bold text-blue-400">{similarity}%</span> match with the job
                   requirements

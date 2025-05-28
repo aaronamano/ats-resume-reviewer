@@ -11,8 +11,8 @@ load_dotenv()
 app = FastAPI()
 
 origins = [
-    "http://localhost.tiangolo.com",
-    "https://localhost.tiangolo.com",
+    "http://localhost:3000",  # Add this line for Next.js frontend
+    "http://127.0.0.1:3000",  # Add this line as alternative localhost
     "http://localhost",
     "http://localhost:8080",
 ]
