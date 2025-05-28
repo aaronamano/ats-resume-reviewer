@@ -9,7 +9,7 @@ DIY ATS resume reviewer
 1. from `ats-resume-reviewer` run `cd backend`
 2. run `venv\scripts\activate`
 3. run `fastapi dev main.py`
-4. <h2>How to test</h2>
+4. How to test
 <ol>
 <li>click on `http://127.0.0.1:8000/docs`</li>
 <li>upload your sample pdf file and paste job description</li>
