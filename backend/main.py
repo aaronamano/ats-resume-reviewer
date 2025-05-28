@@ -6,7 +6,7 @@ from sentence_transformers import SentenceTransformer
 import numpy as np
 from dotenv import load_dotenv
 import os
-from pinecone import Pinecone, ServerlessSpec
+from pinecone import Pinecone
 try:
     import readline
 except ImportError:
@@ -36,6 +36,9 @@ if not pc.has_index(index_name):
 # Get the index after creation
 index = pc.Index(index_name)
 
+# Initialize the sentence transformer model
+model = SentenceTransformer('BAAI/bge-large-en-v1.5')  # This model also produces 1024d vectors
+
 origins = [
     "http://localhost:3000",  # Add this line for Next.js frontend
     "http://127.0.0.1:3000",  # Add this line as alternative localhost
@@ -50,9 +53,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Initialize the sentence transformer model
-model = SentenceTransformer('BAAI/bge-large-en-v1.5')  # This model also produces 1024d vectors
 
 @app.get("/")
 async def root():
