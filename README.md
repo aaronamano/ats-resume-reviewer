@@ -10,3 +10,5 @@ DIY ATS resume reviewer
 2. run `venv\scripts\activate`
 3. run `fastapi dev main.py`
 4. make sure to `Ctrl + C` to terminate server then run `deactivate` to exit venv
+
+## How to test with Postman

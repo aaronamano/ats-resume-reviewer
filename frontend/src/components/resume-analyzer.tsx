@@ -57,7 +57,7 @@ export function ResumeAnalyzer() {
       formData.append("pdf_file", resumeFile)
       formData.append("job_description", jobDescription)
 
-      const response = await fetch("/api/analyze", {
+      const response = await fetch("http://127.0.0.1:8000/analyze", {
         method: "POST",
         body: formData,
       })

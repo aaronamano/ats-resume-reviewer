@@ -1,0 +1,51 @@
+Netflix is one of the world's leading entertainment services, with 283 million paid memberships in over 190 countries enjoying TV series, films and games across a wide variety of genres and languages. Members can play, pause and resume watching as much as they want, anytime, anywhere, and can change their plans at any time.
+
+The Client and Partner Technologies (CPT) organization is charted with enabling brilliant Netflix experiences on partner devices and building foundational client systems and tools. Partner Device Lifecycle Apps team within CPT is looking for a senior full stack engineer with frontend-focused to help us revamp our suite of web applications to enable the future of our partner device lifecycle management.
+
+This team focuses on enabling the SmartTV+ partners devices including TVs, streaming sticks, and other “10 foot” devices with Netflix experiences by providing business to business solutions to scale the integration, certification, launch, and update lifecycle. We are looking for generalizing specialists who have the aptitude and agility to work on a broad spectrum of applications (e.g. device management, feature management and certification testing) with passion for intuitive user experience. 
+
+You will excel if you are comfortable with the ambiguity that comes with innovation, can deliver scalable technical solutions, remove technical debts,  think strategically, make decisions for long term effectiveness and are curious.
+
+What you will do:
+Drive new technical solutions across teams, being a full cycle developer to work from requirements to deployment 
+
+Actively work with product managers and our design team to scope and shape product decisions
+
+Revamp and update existing web applications with new paved path solution 
+
+Focus on streamlining user experience with simplicity  
+
+Enhance and maintain existing applications to meet the needs of our partners and internal stakeholders 
+
+Operate in a cross-functional dynamic environment where you will collaborate and learn from stunning colleagues with different roles and expertise to achieve common goal to bring #NetflixEverywhere
+
+What we are looking for:
+7+ years of experience in a software development role
+
+Strong full-stack development skills with strength in front-end UI work
+
+Experience with at least several UI frameworks
+
+Deep experience with React & GraphQL 
+
+Strong programming skills in Javascript. Experience with Java & Node.js
+
+Ability to innovate through iteration; using prototypes and experiments to navigate solution ambiguity and passionate about data insight 
+
+Proven ability to operate and troubleshoot complex systems crafted with microservice architecture
+
+Experience maintaining and improving legacy systems. Can evaluate and speak to tradeoffs concerning refactor vs rebuild vs buy.
+
+Ability to learn and use in-house software framework/components/service to build solutions effectively
+
+Outstanding communicators who are curious, flexible, and selfless
+
+At Netflix, we carefully consider a wide range of compensation factors to determine your personal top of market. We rely on market indicators to determine compensation and consider your specific job, skills, and experience to get it right. These considerations can cause your compensation to vary and will also be dependent on your location. 
+
+The overall market range for roles in this area of Netflix is typically $100,000 - $720,000. 
+
+This market range is based on total compensation (vs. only base salary), which is in line with our compensation philosophy. Netflix is a unique culture and environment. Learn more here.
+
+Inclusion is a Netflix value and we strive to host a meaningful interview experience for all candidates. If you want an accommodation/adjustment for a disability or any other reason during the hiring process, please send a request to your recruiting partner.
+
+We are an equal-opportunity employer and celebrate diversity, recognizing that diversity builds stronger teams. We approach diversity and inclusion seriously and thoughtfully. We do not discriminate on the basis of race, religion, color, ancestry, national origin, caste, sex, sexual orientation, gender, gender identity or expression, age, disability, medical condition, pregnancy, genetic makeup, marital status, or military service.
