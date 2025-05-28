@@ -204,7 +204,7 @@ export function ResumeAnalyzer() {
               <div className="text-center mt-6">
                 <p className="text-lg font-medium text-gray-300">
                   Your resume has a{" "}
-                  <span style={{ color: getColorForSimilarity(similarity) }}>{similarity}%</span> match with the job
+                  <span style={{ color: getColorForSimilarity(similarity) }}>{Math.round(similarity)}%</span> match with the job
                   requirements
                 </p>
                 {similarity >= 80 ? (
