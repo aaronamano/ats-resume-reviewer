@@ -2,3 +2,4 @@ fastapi
 python-multipart  # for handling file uploads
 PyPDF2  # for PDF text extraction
 uvicorn  # for running the FastAPI server
+cors  # for handling CORS
