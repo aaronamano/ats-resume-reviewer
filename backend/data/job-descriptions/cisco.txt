@@ -21,7 +21,6 @@ C, C++ programming skills
 Hands on experience working with switch/router embedded system software development
 Experience working with L2/L3 protocols
 
-
 Preferred Qualifications: 
 
 OS, System architecture, Linux device driver and user space knowledge 

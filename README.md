@@ -8,7 +8,7 @@ DIY ATS resume reviewer
 ## Backend
 1. from `ats-resume-reviewer` run `cd backend`
 2. run `venv\scripts\activate`
-3. run `fastapi dev main.py`
+3. run `fastapi dev main.py` or `uvicorn main:app --reload`
 4. How to test:
 
 <ul>

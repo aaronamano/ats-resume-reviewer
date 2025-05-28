@@ -6,3 +6,4 @@ cors  # for handling CORS
 pinecone  # for Pinecone vector database integration
 sentence-transformers  # for sentence embeddings
 python-dotenv  # for loading environment variables from .env files
+pyreadline3 # for Windows users
