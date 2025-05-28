@@ -26,6 +26,18 @@ async def root():
 
 @app.post("/analyze")
 async def analyze_resume(pdf_file: UploadFile = File(...), job_description: str = Form(...)):
+    #extract job description and convert to vector embeddings
+    #store vector embeddings in vector database
+
+
+    #extract text from uploaded PDF file
+    #convert extracted text to vector embeddings
+    #send vector embeddings to vector database
+    #conduct vector search to find similar keywords between job description and resume
+    #return results with similarity scores
+
+
+
     try:
         # Read the uploaded file
         pdf_content = await pdf_file.read()
@@ -47,12 +59,3 @@ async def analyze_resume(pdf_file: UploadFile = File(...), job_description: str 
         }
     except Exception as e:
         return {"error": str(e)}
-    
-#convert extracted text to vector embeddings
-#send vector embeddings to vector database
-#conduct vector search to find similar keywords between job description and resume
-#return results with similarity scores
-
-
-#extract job description and convert to vector embeddings
-#store vector embeddings in vector database
