@@ -10,6 +10,12 @@ import { CircularProgress } from "@/components/circular-progress"
 import { useToast } from "@/hooks/use-toast"
 import { Loader2, Upload, FileText, CheckCircle } from "lucide-react"
 
+const getColorForSimilarity = (score: number) => {
+  if (score >= 80) return "#22c55e" // green-500
+  if (score >= 50) return "#f59e0b" // amber-500
+  return "#ef4444" // red-500
+}
+
 export function ResumeAnalyzer() {
   const [jobDescription, setJobDescription] = useState("")
   const [resumeFile, setResumeFile] = useState<File | null>(null)
@@ -170,7 +176,11 @@ export function ResumeAnalyzer() {
             <div className="flex flex-col items-center">
               <h2 className="text-xl font-semibold mb-4 text-gray-200">Analysis Results</h2>
               <div className="flex items-center justify-center mb-4">
-                <CircularProgress value={similarity} circleColor="#4b5563" progressColor="#3b82f6" />
+                <CircularProgress
+                  value={similarity}
+                  circleColor="#4b5563"
+                  progressColor={getColorForSimilarity(similarity)}
+                />
               </div>
 
               {/* Add new results display */}
@@ -193,20 +203,21 @@ export function ResumeAnalyzer() {
 
               <div className="text-center mt-6">
                 <p className="text-lg font-medium text-gray-300">
-                  Your resume has a <span className="font-bold text-blue-400">{similarity}%</span> match with the job
+                  Your resume has a{" "}
+                  <span style={{ color: getColorForSimilarity(similarity) }}>{similarity}%</span> match with the job
                   requirements
                 </p>
                 {similarity >= 80 ? (
-                  <div className="mt-4 flex items-center text-green-400">
+                  <div className="mt-4 flex items-center" style={{ color: getColorForSimilarity(similarity) }}>
                     <CheckCircle className="h-5 w-5 mr-2" />
                     <span>Great match! Your resume aligns well with this job.</span>
                   </div>
                 ) : similarity >= 50 ? (
-                  <p className="mt-4 text-amber-400">
+                  <p className="mt-4" style={{ color: getColorForSimilarity(similarity) }}>
                     Good match. Consider highlighting more relevant skills and experiences.
                   </p>
                 ) : (
-                  <p className="mt-4 text-red-400">
+                  <p className="mt-4" style={{ color: getColorForSimilarity(similarity) }}>
                     Low match. You may want to tailor your resume more specifically to this job.
                   </p>
                 )}
