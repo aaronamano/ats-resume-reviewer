@@ -13,7 +13,6 @@ import { Loader2, Upload, FileText, CheckCircle } from "lucide-react"
 export function ResumeAnalyzer() {
   const [jobDescription, setJobDescription] = useState("")
   const [resumeFile, setResumeFile] = useState<File | null>(null)
-  const [resumeText, setResumeText] = useState("")
   const [similarity, setSimilarity] = useState<number | null>(null)
   const [loading, setLoading] = useState(false)
   const [analyzed, setAnalyzed] = useState(false)
@@ -23,48 +22,12 @@ export function ResumeAnalyzer() {
     const file = e.target.files?.[0]
     if (file && file.type === "application/pdf") {
       setResumeFile(file)
-      extractTextFromPDF(file)
     } else if (file) {
       toast({
         title: "Invalid file format",
         description: "Please upload a PDF file",
         variant: "destructive",
       })
-    }
-  }
-
-  const extractTextFromPDF = async (file: File) => {
-    setLoading(true)
-
-    try {
-      const formData = new FormData()
-      formData.append("file", file)
-
-      const response = await fetch("/api/extract-pdf", {
-        method: "POST",
-        body: formData,
-      })
-
-      if (!response.ok) {
-        throw new Error("Failed to extract text from PDF")
-      }
-
-      const data = await response.json()
-      setResumeText(data.text)
-
-      toast({
-        title: "Resume uploaded successfully",
-        description: "Your resume has been processed and is ready for analysis",
-      })
-    } catch (error) {
-      console.error("Error extracting text from PDF:", error)
-      toast({
-        title: "Error processing PDF",
-        description: "There was an error extracting text from your resume",
-        variant: "destructive",
-      })
-    } finally {
-      setLoading(false)
     }
   }
 
@@ -78,7 +41,7 @@ export function ResumeAnalyzer() {
       return
     }
 
-    if (!resumeText) {
+    if (!resumeFile) {
       toast({
         title: "Resume required",
         description: "Please upload your resume",
@@ -90,15 +53,13 @@ export function ResumeAnalyzer() {
     setLoading(true)
 
     try {
+      const formData = new FormData()
+      formData.append("pdf_file", resumeFile)
+      formData.append("job_description", jobDescription)
+
       const response = await fetch("/api/analyze", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          jobDescription,
-          resumeText,
-        }),
+        body: formData,
       })
 
       if (!response.ok) {

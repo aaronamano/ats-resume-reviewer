@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, Form
 from PyPDF2 import PdfReader
 import io
 from fastapi.middleware.cors import CORSMiddleware
@@ -25,8 +25,7 @@ async def root():
     return {"message": "Hello World"}
 
 @app.post("/analyze")
-#extract text from PDF file
-async def extract_text_from_pdf(pdf_file: UploadFile = File(...)):
+async def analyze_resume(pdf_file: UploadFile = File(...), job_description: str = Form(...)):
     try:
         # Read the uploaded file
         pdf_content = await pdf_file.read()
@@ -39,7 +38,13 @@ async def extract_text_from_pdf(pdf_file: UploadFile = File(...)):
         for page in pdf_reader.pages:
             text += page.extract_text()
         
-        return {"text": text}
+        # TODO: Implement actual similarity analysis
+        # Placeholder response
+        return {
+            "similarity": 75,  # Example similarity score
+            "resume_text": text,
+            "job_description": job_description
+        }
     except Exception as e:
         return {"error": str(e)}
     
