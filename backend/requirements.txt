@@ -1,7 +1,6 @@
 "fastapi[standard]"  # FastAPI with standard dependencies
 python-multipart  # for handling file uploads
 PyPDF2  # for PDF text extraction
-uvicorn  # for running the FastAPI server
 cors  # for handling CORS
 pinecone  # for Pinecone vector database integration
 sentence-transformers  # for sentence embeddings
