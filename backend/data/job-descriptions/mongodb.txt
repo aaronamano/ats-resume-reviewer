@@ -1,0 +1,27 @@
+MongoDB’s mission is to empower innovators to create, transform, and disrupt industries by unleashing the power of software and data. We enable organizations of all sizes to easily build, scale, and run modern applications by helping them modernize legacy workloads, embrace innovation, and unleash AI. Our industry-leading developer data platform, MongoDB Atlas, is the only globally distributed, multi-cloud database and is available in more than 115 regions across AWS, Google Cloud, and Microsoft Azure. Atlas allows customers to build and run applications anywhere—on premises, or across cloud providers. With offices worldwide and over 175,000 new developers signing up to use MongoDB every month, it’s no wonder that leading organizations, like Samsung and Toyota, trust MongoDB to build next-generation, AI-powered applications.
+
+Atlas Search is a cloud service that allows users to execute text and vector search queries using the MongoDB Query Language. Our users are free to focus on relevance and data retrieval instead of the machinery needed to search data at scale. 
+
+Join a new upcoming team responsible for designing and building features that drive adoption of the Atlas Search for AI workloads. The team will be developing scalable services to deliver ML capabilities like embedding, data processing to build RAG and Chat applications on top of MongoDB.
+
+This role is based in the SF Bay Area - hybrid work model.
+
+You would get to:
+Design and contribute to our integrated search platform to support ML workloads.
+Participate in product and architecture discussions
+Perform code reviews with peers and make recommendations on how to improve our code and software development processes
+Collaborate with other teams including cloud services, database, enterprise tools, drivers and support to coordinate changes or contribute to their projects
+Ideally you will be:
+3+ years experience delivering large scale systems on production.
+Proficient in modern programming languages and techniques preferably Java and Python. 
+Experienced in developing distributed systems, cloud services and SaaS products
+Experience with building Gen AI applications or tools like langchain, llama index is preferred but not required.
+Success Measures:
+In three months, you will contribute to search repos to build the foundation for embedding management in MongoDB as well as develop relationships with your team and leaders on other teams.
+In six months, you will have delivered a key feature and contribute to new ML capabilities in Atlas Search.
+In twelve months, you'll be building POCs, designing new features, and collaborating with other Cloud and Server teams on complex projects.
+To drive the personal growth and business impact of our employees, we’re committed to developing a supportive and enriching culture for everyone. From employee affinity groups, to fertility assistance and a generous parental leave policy, we value our employees’ wellbeing and want to support them along every step of their professional and personal journeys. Learn more about what it’s like to work at MongoDB, and help us make an impact on the world!
+
+MongoDB is committed to providing any necessary accommodations for individuals with disabilities within our application and interview process. To request an accommodation due to a disability, please inform your recruiter.
+
+MongoDB, Inc. provides equal employment opportunities to all employees and applicants for employment and prohibits discrimination and harassment of any type and makes all hiring decisions without regard to race, color, religion, age, sex, national origin, disability status, genetics, protected veteran status, sexual orientation, gender identity or expression, or any other characteristic protected by federal, state or local laws.

@@ -1,0 +1,25 @@
+At Coinbase, our mission is to increase economic freedom in the world. It’s a massive, ambitious opportunity that demands the best of us, every day, as we build the emerging onchain platform — and with it, the future global financial system.
+
+To achieve our mission, we’re seeking a very specific candidate. We want someone who is passionate about our mission and who believes in the power of crypto and blockchain technology to update the financial system. We want someone who is eager to leave their mark on the world, who relishes the pressure and privilege of working with high caliber colleagues, and who actively seeks feedback to keep leveling up. We want someone who will run towards, not away from, solving the company’s hardest problems.
+
+Our work culture is intense and isn’t for everyone. But if you want to build the future alongside others who excel in their disciplines and expect the same from you, there’s no better place to be.
+
+Coinbase is seeking a frontend software engineer to join our team to build out the next generation of crypto-forward products and features. You will solve unique, large scale, highly complex technical problems, bridging the constraints posed by web-scale applications and blockchain technology. You will help build the next generation of systems to make cryptocurrency accessible to everyone across the globe. 
+
+What you’ll be doing (ie. job duties):
+
+Work with engineers, designers, product managers and leadership to turn our product and technical vision into a tangible roadmap every quarter
+Write high quality, well tested code to meet the needs of your customers
+What we look for in you (ie. job requirements):
+
+Available to begin employment immediately
+1+ years experience in software engineering/development
+You write high quality, well tested code to meet the needs of your customers
+You're excited about hard problems and getting things done
+You are self-motivated and committed to personal growth
+You approach problems with positive energy
+Degree or certificate in Computer Science, Software Engineering, Computer Engineering, Electrical Engineering, Mathematics or equivalent work experience 
+Nice to haves:
+
+You’ve worked on frontend teams using TML, CSS, JavaScript, TypeScript, JSX, TSX, React, Vue.js, Angular, Next.js, Svelte, React Native, Dart (for Flutter)
+You're passionate about blockchain, crypto, and building an open financial system that brings the world together

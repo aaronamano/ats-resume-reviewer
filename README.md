@@ -5,7 +5,7 @@ DIY ATS resume reviewer
 1. git clone this repo by running `git clone <url>`
 2. create a `.env` file in `@/backend/` and add `PINECONE_API_KEY=<your_api_key>` in it
 3. in `@/backend/` run `python -m venv venv` then run `venv\scripts\activate`
-4. run `pip install -r requirements.text`
+4. run `pip install -r requirements.txt`
 5. in `@/frontend/` run `npm install`
 
 ## How to run the app
