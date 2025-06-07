@@ -7,12 +7,13 @@ import numpy as np
 from dotenv import load_dotenv
 import os
 from pinecone import Pinecone
+import time
+from time import sleep
+
 try:
     import readline
 except ImportError:
     import pyreadline3 as readline
-import time
-from time import sleep  # Add this import at the top
 
 app = FastAPI()
 
@@ -58,7 +59,8 @@ app.add_middleware(
 async def root():
     return {"message": "Hello World"}
 
-@app.post("/analyze")
+#using numpy to analyze the resume and job description
+""" @app.post("/analyze")
 async def analyze_resume(pdf_file: UploadFile = File(...), job_description: str = Form(...)):
     try:
         # Read the uploaded file
@@ -88,7 +90,7 @@ async def analyze_resume(pdf_file: UploadFile = File(...), job_description: str 
         }
 
     except Exception as e:
-        return {"error": str(e)}
+        return {"error": str(e)} """
     
 @app.post("/analyze/pinecone")
 async def analyze_resume(pdf_file: UploadFile = File(...), job_description: str = Form(...)):
