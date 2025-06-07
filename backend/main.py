@@ -151,7 +151,7 @@ async def analyze_resume(pdf_file: UploadFile = File(...), job_description: str 
             }
         )
 
-        print(f"Query response: {query_response}")  # Debug print
+        #print(f"Query response: {query_response}")  # Debug print
 
         # Check if matches were found
         if not query_response['matches']:
@@ -175,5 +175,5 @@ async def analyze_resume(pdf_file: UploadFile = File(...), job_description: str 
         }
 
     except Exception as e:
-        print(f"Error in analyze_resume: {str(e)}")  # Debug print
+        #print(f"Error in analyze_resume: {str(e)}")  # Debug print
         return {"error": str(e)}
