@@ -1,4 +1,4 @@
-"fastapi[standard]"  # FastAPI with standard dependencies
+fastapi[standard]  # FastAPI with standard dependencies
 python-multipart  # for handling file uploads
 PyPDF2  # for PDF text extraction
 cors  # for handling CORS
@@ -7,3 +7,5 @@ sentence-transformers  # for sentence embeddings
 python-dotenv  # for loading environment variables from .env files
 pyreadline3 # for Windows users
 uvicorn  # ASGI server for running FastAPI applications
+openai # openai library
+reportlab
