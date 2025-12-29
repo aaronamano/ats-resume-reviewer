@@ -260,7 +260,7 @@ export function ResumeAnalyzer() {
                   onClick={generatePDFReport}
                   disabled={generatingPDF}
                   variant="outline"
-                  className="w-full border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white"
+                  className="w-full border-gray-300 bg-gray-100 text-gray-900 hover:bg-gray-900 hover:text-white hover:border-gray-600"
                 >
                   {generatingPDF ? (
                     <>
