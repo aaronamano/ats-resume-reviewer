@@ -4,7 +4,6 @@ from PyPDF2 import PdfReader
 import io
 from fastapi.middleware.cors import CORSMiddleware
 from sentence_transformers import SentenceTransformer
-import numpy as np
 from dotenv import load_dotenv
 import os
 from pinecone import Pinecone
@@ -12,23 +11,12 @@ import time
 from time import sleep
 from openai import OpenAI
 from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib.units import inch
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
 from datetime import datetime
-from reportlab.pdfgen import canvas
-from reportlab.lib.utils import ImageReader
-from reportlab.platypus import KeepTogether, PageBreak
-import io as io_module
-import base64
-from reportlab.lib.utils import simpleSplit
-
-try:
-    import readline
-except ImportError:
-    import pyreadline3 as readline
+from reportlab.platypus import KeepTogether
 
 app = FastAPI()
 
@@ -76,8 +64,7 @@ app.add_middleware(
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
-
-#using numpy to analyze the resume and job description
+    
 @app.post("/analyze")
 async def analyze_files(pdf_file: UploadFile = File(...), job_description: str = Form(...)):
     try:
@@ -92,37 +79,13 @@ async def analyze_files(pdf_file: UploadFile = File(...), job_description: str =
         for page in pdf_reader.pages:
             text += page.extract_text()
 
-        # Convert texts to vector embeddings
-        job_description_embedding = model.encode(job_description)
-        resume_embedding = model.encode(text)
+        print(text)
 
-        # Calculate cosine similarity
-        similarity_score = float(np.dot(job_description_embedding, resume_embedding) / (
-            np.linalg.norm(job_description_embedding) * np.linalg.norm(resume_embedding)
-        ) * 100)
-
-        return {
-            "similarity": round(similarity_score, 2),
-            "resume_text": text,
-            "job_description": job_description
-        }
-
-    except Exception as e:
-        return {"error": str(e)}
-    
-@app.post("/analyze/pinecone")
-async def analyze_files(pdf_file: UploadFile = File(...), job_description: str = Form(...)):
-    try:
-        # Read the uploaded file
-        pdf_content = await pdf_file.read()
-        
-        # Create a PDF reader object
-        pdf_reader = PdfReader(io.BytesIO(pdf_content))
-        
-        # Extract text from all pages
-        text = ""
-        for page in pdf_reader.pages:
-            text += page.extract_text()
+        text = text.replace("\n", " ").replace("|", " ").replace("•", " ").replace(";", " ").replace(",", " ").replace(".", " ").replace(":", " ")
+        text = text.replace("and", " ").replace("of", " ").replace("to", " ").replace("with", " ")
+        text = text.lower()
+        job_description = job_description.replace(".", " ").replace("(", " ").replace(")", " ").replace(":", " ").replace(";", " ").replace(",", " ")
+        job_description = job_description.lower()
 
         # Create vector embeddings with normalization for cosine similarity
         resume_embedding = model.encode(text, normalize_embeddings=True).tolist()
