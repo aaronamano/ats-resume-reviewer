@@ -17,6 +17,7 @@ from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
 from datetime import datetime
 from reportlab.platypus import KeepTogether
+import re
 
 app = FastAPI()
 
@@ -78,14 +79,28 @@ async def analyze_files(pdf_file: UploadFile = File(...), job_description: str =
         text = ""
         for page in pdf_reader.pages:
             text += page.extract_text()
-
-        print(text)
-
-        text = text.replace("\n", " ").replace("|", " ").replace("•", " ").replace(";", " ").replace(",", " ").replace(".", " ").replace(":", " ")
-        text = text.replace("and", " ").replace("of", " ").replace("to", " ").replace("with", " ")
+        
+        text = text.replace("\n", " ").replace("|", " ").replace("•", " ").replace(";", " ").replace(",", " ").replace(":", " ").replace("–", " ")
         text = text.lower()
-        job_description = job_description.replace(".", " ").replace("(", " ").replace(")", " ").replace(":", " ").replace(";", " ").replace(",", " ")
+        
+        # Replace common irrelevant words using regex with word boundaries
+        common_words = ['and', 'of', 'to', 'with', 'the', 'a', 'an', 'in', 'on', 'at', 'for', 'from', 'by', 'or', 'but', 'as', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could', 'should', 'may', 'might', 'must', 'can', 'this', 'that', 'these', 'those', 'i', 'you', 'he', 'she', 'it', 'we', 'they', 'me', 'him', 'her', 'us', 'them', 'my', 'your', 'his', 'her', 'its', 'our', 'their', 'experience', 'work', 'job', 'position', 'role', 'team', 'company', 'project', 'management', 'development', 'design', 'implementation', 'testing', 'deployment', 'maintenance', 'support', 'training', 'education', 'skills', 'knowledge', 'ability', 'expertise', 'proficiency', 'understanding', 'familiarity', 'awareness']
+        
+        for word in common_words:
+            text = re.sub(rf'\b{re.escape(word)}\b', '', text, flags=re.IGNORECASE)
+        
+        # Clean up extra spaces
+        text = re.sub(r'\s+', ' ', text).strip()
+        
+        job_description = job_description.replace(".", " ").replace("(", " ").replace(")", " ").replace(":", " ").replace(";", " ").replace(",", " ").replace("/", " ")
         job_description = job_description.lower()
+        
+        # Replace common irrelevant words in job description using regex
+        for word in common_words:
+            job_description = re.sub(rf'\b{re.escape(word)}\b', '', job_description, flags=re.IGNORECASE)
+        
+        # Clean up extra spaces in job description
+        job_description = re.sub(r'\s+', ' ', job_description).strip()
 
         # Create vector embeddings with normalization for cosine similarity
         resume_embedding = model.encode(text, normalize_embeddings=True).tolist()
@@ -134,8 +149,6 @@ async def analyze_files(pdf_file: UploadFile = File(...), job_description: str =
             }
         )
 
-        #print(f"Query response: {query_response}")  # Debug print
-
         # Check if matches were found
         if not query_response['matches']:
             return {
@@ -158,7 +171,6 @@ async def analyze_files(pdf_file: UploadFile = File(...), job_description: str =
         }
 
     except Exception as e:
-        #print(f"Error in analyze_resume: {str(e)}")  # Debug print
         return {"error": str(e)}
     
 @app.post("/feedback")
